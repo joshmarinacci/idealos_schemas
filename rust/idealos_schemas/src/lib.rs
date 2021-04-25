@@ -7,3 +7,9 @@ mod tests {
 }
 
 mod debug;
+mod general;
+mod graphics;
+mod resources;
+mod windows;
+mod input;
+mod menus;
