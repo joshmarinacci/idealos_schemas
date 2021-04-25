@@ -9,3 +9,6 @@ mod general;
 fn main() {
     println!("Hello, world!");
 }
+fn foo() {
+    println!("foo is oof");
+}
