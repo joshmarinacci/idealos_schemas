@@ -1,0 +1,22 @@
+{
+  "name": "idealos_schemas",
+  "version": "0.0.1",
+  "description": "schemas for message api of ideals",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node schema_compiler.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshmarinacci/idealos_schemas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshmarinacci/idealos_schemas/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/joshmarinacci/idealos_schemas#readme"
+}
