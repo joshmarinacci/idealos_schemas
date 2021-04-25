@@ -101,7 +101,7 @@ async function process_schema(src, dst_js, dst_rs) {
 async function doit() {
     let SRC = "src"
     let JS = "js"
-    let RUST = "rust"
+    let RUST = "rust/idealos_schemas/src"
     let schemas = ['debug','general','graphics','input','menus','resources','windows']
     for (let sch of schemas) {
         await process_schema(path.join(SRC,sch+'.txt'),path.join(JS,sch+'.js'),path.join(RUST,sch+".rs"));
