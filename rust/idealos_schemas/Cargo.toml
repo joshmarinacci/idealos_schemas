@@ -1,6 +1,6 @@
 [package]
 name = "idealos_schemas"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["josh <joshua@marinacci.org>"]
 edition = "2018"
 
