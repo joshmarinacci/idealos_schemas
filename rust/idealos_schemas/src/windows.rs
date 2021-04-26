@@ -131,3 +131,10 @@ pub struct close_child_window_display {
     pub sender:String,
     pub window:String,
 }
+pub const SetFocusedWindow_name: &str = "MAKE_SetFocusedWindow_name";
+#[derive(Serialize, Deserialize, Debug)]
+pub struct SetFocusedWindow {
+    #[serde(rename = "type")]
+    pub type_:String,
+    pub window:String,
+}

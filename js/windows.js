@@ -266,6 +266,16 @@ function MAKE_close_child_window_display(data) {
     
     return obj
 }
+const TYPE_SetFocusedWindow = "MAKE_SetFocusedWindow_name"
+function MAKE_SetFocusedWindow(data) {
+    let obj = {}
+    obj.type = TYPE_SetFocusedWindow
+    if(!data.hasOwnProperty('window')) throw new Error("object 'SetFocusedWindow' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'SetFocusedWindow has undefined property window")
+    obj.window = data.window
+    
+    return obj
+}
 export const WINDOWS = {
     MAKE_window_info : MAKE_window_info,
     TYPE_window_info : TYPE_window_info,
@@ -299,4 +309,6 @@ export const WINDOWS = {
     TYPE_close_child_window_response : TYPE_close_child_window_response,
     MAKE_close_child_window_display : MAKE_close_child_window_display,
     TYPE_close_child_window_display : TYPE_close_child_window_display,
+    MAKE_SetFocusedWindow : MAKE_SetFocusedWindow,
+    TYPE_SetFocusedWindow : TYPE_SetFocusedWindow,
 }
