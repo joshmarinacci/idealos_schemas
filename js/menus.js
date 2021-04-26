@@ -59,16 +59,12 @@ function MAKE_root(data) {
     
     return obj
 }
-const TYPE_create_menu_tree_message = "MAKE_create_menu_tree_message_name"
-function MAKE_create_menu_tree_message(data) {
+const TYPE_SetMenubar = "MAKE_SetMenubar_name"
+function MAKE_SetMenubar(data) {
     let obj = {}
-    obj.type = TYPE_create_menu_tree_message
-    if(!data.hasOwnProperty('type')) throw new Error("object 'create_menu_tree_message' is missing property 'type' ")
-    if(data.type === undefined) throw new Error("object 'create_menu_tree_message has undefined property type")
-    obj.type = data.type
-    
-    if(!data.hasOwnProperty('menu')) throw new Error("object 'create_menu_tree_message' is missing property 'menu' ")
-    if(data.menu === undefined) throw new Error("object 'create_menu_tree_message has undefined property menu")
+    obj.type = TYPE_SetMenubar
+    if(!data.hasOwnProperty('menu')) throw new Error("object 'SetMenubar' is missing property 'menu' ")
+    if(data.menu === undefined) throw new Error("object 'SetMenubar has undefined property menu")
     obj.menu = MAKE_root(data.menu)
     
     return obj
@@ -84,6 +80,6 @@ export const MENUS = {
     TYPE_item_array : TYPE_item_array,
     MAKE_root : MAKE_root,
     TYPE_root : TYPE_root,
-    MAKE_create_menu_tree_message : MAKE_create_menu_tree_message,
-    TYPE_create_menu_tree_message : TYPE_create_menu_tree_message,
+    MAKE_SetMenubar : MAKE_SetMenubar,
+    TYPE_SetMenubar : TYPE_SetMenubar,
 }

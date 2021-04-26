@@ -31,12 +31,10 @@ pub struct root {
     pub _type:node_type,
     pub children:item_array,
 }
-pub const create_menu_tree_message_name: &str = "MAKE_create_menu_tree_message_name";
+pub const SetMenubar_name: &str = "MAKE_SetMenubar_name";
 #[derive(Serialize, Deserialize, Debug)]
-pub struct create_menu_tree_message {
+pub struct SetMenubar {
     #[serde(rename = "type")]
     pub type_:String,
-    #[serde(rename = "type")]
-    pub _type:String,
     pub menu:root,
 }
