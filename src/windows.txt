@@ -21,4 +21,6 @@ close_child_window           = object parent:string sender:string window:string
 close_child_window_response  = object parent:string sender:string window:string target:string
 close_child_window_display   = object parent:string sender:string window:string
 
+SetFocusedWindow = object window:string
+
 
