@@ -21,6 +21,16 @@ pub struct MouseUp {
     pub app:String,
     pub window:String,
 }
+pub const MouseMove_name: &str = "MAKE_MouseMove_name";
+#[derive(Serialize, Deserialize, Debug)]
+pub struct MouseMove {
+    #[serde(rename = "type")]
+    pub type_:String,
+    pub x:i64,
+    pub y:i64,
+    pub app:String,
+    pub window:String,
+}
 pub const KeyboardDown_name: &str = "MAKE_KeyboardDown_name";
 #[derive(Serialize, Deserialize, Debug)]
 pub struct KeyboardDown {
@@ -38,4 +48,11 @@ pub struct KeyboardUp {
     pub keyname:String,
     pub app:String,
     pub window:String,
+}
+pub const Action_name: &str = "MAKE_Action_name";
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Action {
+    #[serde(rename = "type")]
+    pub type_:String,
+    pub command:String,
 }
