@@ -1,5 +1,5 @@
-MouseDown = object x:number y:number target:string
-MouseUp = object x:number y:number target:string
-KeyboardDown = object keyname:string target:string
-KeyboardUp = object keyname:string target:string
+MouseDown = object x:number y:number app:string window:string
+MouseUp = object x:number y:number app:string window:string
+KeyboardDown = object keyname:string app:string window:string
+KeyboardUp = object keyname:string app:string window:string
 

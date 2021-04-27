@@ -10,9 +10,13 @@ function MAKE_MouseDown(data) {
     if(data.y === undefined) throw new Error("object 'MouseDown has undefined property y")
     obj.y = data.y
     
-    if(!data.hasOwnProperty('target')) throw new Error("object 'MouseDown' is missing property 'target' ")
-    if(data.target === undefined) throw new Error("object 'MouseDown has undefined property target")
-    obj.target = data.target
+    if(!data.hasOwnProperty('app')) throw new Error("object 'MouseDown' is missing property 'app' ")
+    if(data.app === undefined) throw new Error("object 'MouseDown has undefined property app")
+    obj.app = data.app
+    
+    if(!data.hasOwnProperty('window')) throw new Error("object 'MouseDown' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'MouseDown has undefined property window")
+    obj.window = data.window
     
     return obj
 }
@@ -28,9 +32,13 @@ function MAKE_MouseUp(data) {
     if(data.y === undefined) throw new Error("object 'MouseUp has undefined property y")
     obj.y = data.y
     
-    if(!data.hasOwnProperty('target')) throw new Error("object 'MouseUp' is missing property 'target' ")
-    if(data.target === undefined) throw new Error("object 'MouseUp has undefined property target")
-    obj.target = data.target
+    if(!data.hasOwnProperty('app')) throw new Error("object 'MouseUp' is missing property 'app' ")
+    if(data.app === undefined) throw new Error("object 'MouseUp has undefined property app")
+    obj.app = data.app
+    
+    if(!data.hasOwnProperty('window')) throw new Error("object 'MouseUp' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'MouseUp has undefined property window")
+    obj.window = data.window
     
     return obj
 }
@@ -42,9 +50,13 @@ function MAKE_KeyboardDown(data) {
     if(data.keyname === undefined) throw new Error("object 'KeyboardDown has undefined property keyname")
     obj.keyname = data.keyname
     
-    if(!data.hasOwnProperty('target')) throw new Error("object 'KeyboardDown' is missing property 'target' ")
-    if(data.target === undefined) throw new Error("object 'KeyboardDown has undefined property target")
-    obj.target = data.target
+    if(!data.hasOwnProperty('app')) throw new Error("object 'KeyboardDown' is missing property 'app' ")
+    if(data.app === undefined) throw new Error("object 'KeyboardDown has undefined property app")
+    obj.app = data.app
+    
+    if(!data.hasOwnProperty('window')) throw new Error("object 'KeyboardDown' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'KeyboardDown has undefined property window")
+    obj.window = data.window
     
     return obj
 }
@@ -56,9 +68,13 @@ function MAKE_KeyboardUp(data) {
     if(data.keyname === undefined) throw new Error("object 'KeyboardUp has undefined property keyname")
     obj.keyname = data.keyname
     
-    if(!data.hasOwnProperty('target')) throw new Error("object 'KeyboardUp' is missing property 'target' ")
-    if(data.target === undefined) throw new Error("object 'KeyboardUp has undefined property target")
-    obj.target = data.target
+    if(!data.hasOwnProperty('app')) throw new Error("object 'KeyboardUp' is missing property 'app' ")
+    if(data.app === undefined) throw new Error("object 'KeyboardUp has undefined property app")
+    obj.app = data.app
+    
+    if(!data.hasOwnProperty('window')) throw new Error("object 'KeyboardUp' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'KeyboardUp has undefined property window")
+    obj.window = data.window
     
     return obj
 }
