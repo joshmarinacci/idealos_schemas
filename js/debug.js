@@ -94,6 +94,26 @@ function MAKE_RestartApp(data) {
     
     return obj
 }
+const TYPE_AppStarted = "MAKE_AppStarted_name"
+function MAKE_AppStarted(data) {
+    let obj = {}
+    obj.type = TYPE_AppStarted
+    if(!data.hasOwnProperty('target')) throw new Error("object 'AppStarted' is missing property 'target' ")
+    if(data.target === undefined) throw new Error("object 'AppStarted has undefined property target")
+    obj.target = data.target
+    
+    return obj
+}
+const TYPE_AppStopped = "MAKE_AppStopped_name"
+function MAKE_AppStopped(data) {
+    let obj = {}
+    obj.type = TYPE_AppStopped
+    if(!data.hasOwnProperty('target')) throw new Error("object 'AppStopped' is missing property 'target' ")
+    if(data.target === undefined) throw new Error("object 'AppStopped has undefined property target")
+    obj.target = data.target
+    
+    return obj
+}
 export const DEBUG = {
     MAKE_ListAppsRequest : MAKE_ListAppsRequest,
     TYPE_ListAppsRequest : TYPE_ListAppsRequest,
@@ -113,4 +133,8 @@ export const DEBUG = {
     TYPE_StopApp : TYPE_StopApp,
     MAKE_RestartApp : MAKE_RestartApp,
     TYPE_RestartApp : TYPE_RestartApp,
+    MAKE_AppStarted : MAKE_AppStarted,
+    TYPE_AppStarted : TYPE_AppStarted,
+    MAKE_AppStopped : MAKE_AppStopped,
+    TYPE_AppStopped : TYPE_AppStopped,
 }

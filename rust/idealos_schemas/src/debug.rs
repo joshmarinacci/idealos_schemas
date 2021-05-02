@@ -61,3 +61,17 @@ pub struct RestartApp {
     pub type_:String,
     pub target:String,
 }
+pub const AppStarted_name: &str = "MAKE_AppStarted_name";
+#[derive(Serialize, Deserialize, Debug)]
+pub struct AppStarted {
+    #[serde(rename = "type")]
+    pub type_:String,
+    pub target:String,
+}
+pub const AppStopped_name: &str = "MAKE_AppStopped_name";
+#[derive(Serialize, Deserialize, Debug)]
+pub struct AppStopped {
+    #[serde(rename = "type")]
+    pub type_:String,
+    pub target:String,
+}

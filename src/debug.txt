@@ -7,6 +7,8 @@ StartApp         = object target:string
 StartAppByName   = object name:string
 StopApp          = object target:string
 RestartApp       = object target:string
+AppStarted       = object target:string
+AppStopped       = object target:string
 
 
 
