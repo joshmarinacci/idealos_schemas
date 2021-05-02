@@ -64,6 +64,16 @@ function MAKE_StartApp(data) {
     
     return obj
 }
+const TYPE_StartAppByName = "MAKE_StartAppByName_name"
+function MAKE_StartAppByName(data) {
+    let obj = {}
+    obj.type = TYPE_StartAppByName
+    if(!data.hasOwnProperty('name')) throw new Error("object 'StartAppByName' is missing property 'name' ")
+    if(data.name === undefined) throw new Error("object 'StartAppByName has undefined property name")
+    obj.name = data.name
+    
+    return obj
+}
 const TYPE_StopApp = "MAKE_StopApp_name"
 function MAKE_StopApp(data) {
     let obj = {}
@@ -97,6 +107,8 @@ export const DEBUG = {
     TYPE_TestStart : TYPE_TestStart,
     MAKE_StartApp : MAKE_StartApp,
     TYPE_StartApp : TYPE_StartApp,
+    MAKE_StartAppByName : MAKE_StartAppByName,
+    TYPE_StartAppByName : TYPE_StartAppByName,
     MAKE_StopApp : MAKE_StopApp,
     TYPE_StopApp : TYPE_StopApp,
     MAKE_RestartApp : MAKE_RestartApp,

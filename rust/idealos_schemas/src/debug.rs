@@ -40,6 +40,13 @@ pub struct StartApp {
     pub type_:String,
     pub target:String,
 }
+pub const StartAppByName_name: &str = "MAKE_StartAppByName_name";
+#[derive(Serialize, Deserialize, Debug)]
+pub struct StartAppByName {
+    #[serde(rename = "type")]
+    pub type_:String,
+    pub name:String,
+}
 pub const StopApp_name: &str = "MAKE_StopApp_name";
 #[derive(Serialize, Deserialize, Debug)]
 pub struct StopApp {
