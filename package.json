@@ -1,6 +1,6 @@
 {
   "name": "idealos_schemas",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "schemas for message api of ideals",
   "main": "build.js",
   "scripts": {
