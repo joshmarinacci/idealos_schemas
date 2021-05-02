@@ -6,7 +6,8 @@ WindowOpen = object width:number height:number sender:string window_type:string
 WindowOpenDisplay = object target:string window:window_info
 WindowOpenResponse = object target:string window:string
 
-window_close = object target:string window:string
+window_close_request = object target:string window:string
+window_close_response = object target:string window:string
 
 window_list = object windows:window_map
 

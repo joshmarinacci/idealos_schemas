@@ -90,16 +90,30 @@ function MAKE_WindowOpenResponse(data) {
     
     return obj
 }
-const TYPE_window_close = "MAKE_window_close_name"
-function MAKE_window_close(data) {
+const TYPE_window_close_request = "MAKE_window_close_request_name"
+function MAKE_window_close_request(data) {
     let obj = {}
-    obj.type = TYPE_window_close
-    if(!data.hasOwnProperty('target')) throw new Error("object 'window_close' is missing property 'target' ")
-    if(data.target === undefined) throw new Error("object 'window_close has undefined property target")
+    obj.type = TYPE_window_close_request
+    if(!data.hasOwnProperty('target')) throw new Error("object 'window_close_request' is missing property 'target' ")
+    if(data.target === undefined) throw new Error("object 'window_close_request has undefined property target")
     obj.target = data.target
     
-    if(!data.hasOwnProperty('window')) throw new Error("object 'window_close' is missing property 'window' ")
-    if(data.window === undefined) throw new Error("object 'window_close has undefined property window")
+    if(!data.hasOwnProperty('window')) throw new Error("object 'window_close_request' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'window_close_request has undefined property window")
+    obj.window = data.window
+    
+    return obj
+}
+const TYPE_window_close_response = "MAKE_window_close_response_name"
+function MAKE_window_close_response(data) {
+    let obj = {}
+    obj.type = TYPE_window_close_response
+    if(!data.hasOwnProperty('target')) throw new Error("object 'window_close_response' is missing property 'target' ")
+    if(data.target === undefined) throw new Error("object 'window_close_response has undefined property target")
+    obj.target = data.target
+    
+    if(!data.hasOwnProperty('window')) throw new Error("object 'window_close_response' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'window_close_response has undefined property window")
     obj.window = data.window
     
     return obj
@@ -289,8 +303,10 @@ export const WINDOWS = {
     TYPE_WindowOpenDisplay : TYPE_WindowOpenDisplay,
     MAKE_WindowOpenResponse : MAKE_WindowOpenResponse,
     TYPE_WindowOpenResponse : TYPE_WindowOpenResponse,
-    MAKE_window_close : MAKE_window_close,
-    TYPE_window_close : TYPE_window_close,
+    MAKE_window_close_request : MAKE_window_close_request,
+    TYPE_window_close_request : TYPE_window_close_request,
+    MAKE_window_close_response : MAKE_window_close_response,
+    TYPE_window_close_response : TYPE_window_close_response,
     MAKE_window_list : MAKE_window_list,
     TYPE_window_list : TYPE_window_list,
     MAKE_window_refresh_request : MAKE_window_refresh_request,
