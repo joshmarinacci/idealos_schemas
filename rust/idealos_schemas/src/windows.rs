@@ -42,9 +42,17 @@ pub struct WindowOpenResponse {
     pub target:String,
     pub window:String,
 }
-pub const window_close_name: &str = "MAKE_window_close_name";
+pub const window_close_request_name: &str = "MAKE_window_close_request_name";
 #[derive(Serialize, Deserialize, Debug)]
-pub struct window_close {
+pub struct window_close_request {
+    #[serde(rename = "type")]
+    pub type_:String,
+    pub target:String,
+    pub window:String,
+}
+pub const window_close_response_name: &str = "MAKE_window_close_response_name";
+#[derive(Serialize, Deserialize, Debug)]
+pub struct window_close_response {
     #[serde(rename = "type")]
     pub type_:String,
     pub target:String,
