@@ -37,6 +37,7 @@ pub struct KeyboardDown {
     #[serde(rename = "type")]
     pub type_:String,
     pub keyname:String,
+    pub shift:boolean,
     pub app:String,
     pub window:String,
 }
@@ -46,6 +47,7 @@ pub struct KeyboardUp {
     #[serde(rename = "type")]
     pub type_:String,
     pub keyname:String,
+    pub shift:boolean,
     pub app:String,
     pub window:String,
 }
