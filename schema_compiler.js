@@ -153,6 +153,11 @@ function make_js_output(namespace,defs) {
                     js_output.blank()
                     return
                 }
+                if(type === 'boolean') {
+                    js_output.line(`obj.${name} = data.${name}`)
+                    js_output.blank()
+                    return
+                }
                 js_output.line(`obj.${name} = MAKE_${type}(data.${name})`)
                 js_output.blank()
             })
