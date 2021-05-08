@@ -44,6 +44,14 @@ const TYPE_WindowOpen = "MAKE_WindowOpen_name"
 function MAKE_WindowOpen(data) {
     let obj = {}
     obj.type = TYPE_WindowOpen
+    if(!data.hasOwnProperty('x')) throw new Error("object 'WindowOpen' is missing property 'x' ")
+    if(data.x === undefined) throw new Error("object 'WindowOpen has undefined property x")
+    obj.x = data.x
+    
+    if(!data.hasOwnProperty('y')) throw new Error("object 'WindowOpen' is missing property 'y' ")
+    if(data.y === undefined) throw new Error("object 'WindowOpen has undefined property y")
+    obj.y = data.y
+    
     if(!data.hasOwnProperty('width')) throw new Error("object 'WindowOpen' is missing property 'width' ")
     if(data.width === undefined) throw new Error("object 'WindowOpen has undefined property width")
     obj.width = data.width
@@ -290,6 +298,28 @@ function MAKE_SetFocusedWindow(data) {
     
     return obj
 }
+const TYPE_WindowSetPosition = "MAKE_WindowSetPosition_name"
+function MAKE_WindowSetPosition(data) {
+    let obj = {}
+    obj.type = TYPE_WindowSetPosition
+    if(!data.hasOwnProperty('app')) throw new Error("object 'WindowSetPosition' is missing property 'app' ")
+    if(data.app === undefined) throw new Error("object 'WindowSetPosition has undefined property app")
+    obj.app = data.app
+    
+    if(!data.hasOwnProperty('window')) throw new Error("object 'WindowSetPosition' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'WindowSetPosition has undefined property window")
+    obj.window = data.window
+    
+    if(!data.hasOwnProperty('x')) throw new Error("object 'WindowSetPosition' is missing property 'x' ")
+    if(data.x === undefined) throw new Error("object 'WindowSetPosition has undefined property x")
+    obj.x = data.x
+    
+    if(!data.hasOwnProperty('y')) throw new Error("object 'WindowSetPosition' is missing property 'y' ")
+    if(data.y === undefined) throw new Error("object 'WindowSetPosition has undefined property y")
+    obj.y = data.y
+    
+    return obj
+}
 export const WINDOWS = {
     MAKE_window_info : MAKE_window_info,
     TYPE_window_info : TYPE_window_info,
@@ -327,4 +357,6 @@ export const WINDOWS = {
     TYPE_close_child_window_display : TYPE_close_child_window_display,
     MAKE_SetFocusedWindow : MAKE_SetFocusedWindow,
     TYPE_SetFocusedWindow : TYPE_SetFocusedWindow,
+    MAKE_WindowSetPosition : MAKE_WindowSetPosition,
+    TYPE_WindowSetPosition : TYPE_WindowSetPosition,
 }

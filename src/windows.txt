@@ -2,7 +2,7 @@ window_info = object id:string width:number height:number x:number y:number owne
 window_array = array window_info
 window_map   = map string window_info
 
-WindowOpen = object width:number height:number sender:string window_type:string
+WindowOpen = object x:number y:number width:number height:number sender:string window_type:string
 WindowOpenDisplay = object target:string window:window_info
 WindowOpenResponse = object target:string window:string
 
@@ -23,5 +23,6 @@ close_child_window_response  = object parent:string sender:string window:string 
 close_child_window_display   = object parent:string sender:string window:string
 
 SetFocusedWindow = object window:string
+WindowSetPosition = object app:string window:string x:number y:number
 
 

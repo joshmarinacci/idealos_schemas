@@ -21,6 +21,8 @@ pub const WindowOpen_name: &str = "MAKE_WindowOpen_name";
 pub struct WindowOpen {
     #[serde(rename = "type")]
     pub type_:String,
+    pub x:i64,
+    pub y:i64,
     pub width:i64,
     pub height:i64,
     pub sender:String,
@@ -145,4 +147,14 @@ pub struct SetFocusedWindow {
     #[serde(rename = "type")]
     pub type_:String,
     pub window:String,
+}
+pub const WindowSetPosition_name: &str = "MAKE_WindowSetPosition_name";
+#[derive(Serialize, Deserialize, Debug)]
+pub struct WindowSetPosition {
+    #[serde(rename = "type")]
+    pub type_:String,
+    pub app:String,
+    pub window:String,
+    pub x:i64,
+    pub y:i64,
 }
