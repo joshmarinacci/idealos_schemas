@@ -45,6 +45,8 @@ for(let i=48; i<=57; i++) {
     let name = "Digit"+ch
     KEY_NAMES[name] = name
     DOM_KEYCODE_SET[name] = { key_code:i,shift:false, dom_key:ch, dom_code:name}
+    KEYCODE_TO_NAME[i] = []
+    KEYCODE_TO_NAME[i].push({ key_code:i, shift:false, name:name, letter:ch.toLowerCase()})
 }
 //letters
 for(let i=65; i<=90; i++) {
@@ -52,12 +54,11 @@ for(let i=65; i<=90; i++) {
     let name = "Key"+ch.toUpperCase()
     KEY_NAMES[name] = name
     DOM_KEYCODE_SET[name] = { key_code:i,shift:false, dom_key:ch, dom_code:name}
-    console.log("Added",DOM_KEYCODE_SET[name])
     KEYCODE_TO_NAME[i] = []
     KEYCODE_TO_NAME[i].push({ key_code:i, shift:false, name:name, letter:ch.toLowerCase()})
     KEYCODE_TO_NAME[i].push({ key_code:i, shift:true, name:name, letter:ch.toUpperCase()})
 }
-console.log("Keynames",KEY_NAMES)
+// console.log("Keynames",KEY_NAMES)
 
 // Object.keys(KEY_NAMES).forEach(name => {
 //     if(!DOM_KEYCODE_SET.hasOwnProperty(name)) return
