@@ -36,7 +36,8 @@ pub const KeyboardDown_name: &str = "MAKE_KeyboardDown_name";
 pub struct KeyboardDown {
     #[serde(rename = "type")]
     pub type_:String,
-    pub keyname:String,
+    pub name:String,
+    pub letter:String,
     pub shift:boolean,
     pub app:String,
     pub window:String,
@@ -46,7 +47,8 @@ pub const KeyboardUp_name: &str = "MAKE_KeyboardUp_name";
 pub struct KeyboardUp {
     #[serde(rename = "type")]
     pub type_:String,
-    pub keyname:String,
+    pub name:String,
+    pub letter:String,
     pub shift:boolean,
     pub app:String,
     pub window:String,
