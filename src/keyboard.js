@@ -80,6 +80,7 @@ const obj = {
     KEYCODE_TO_NAME:KEYCODE_TO_NAME,
 }
 fs.promises.writeFile("js/keyboard_map.json", JSON.stringify(obj,null,'   '))
+fs.promises.writeFile("js/keyboard_map.js", `export const INFO = ${JSON.stringify(obj,null,'   ')}`)
 
 /*
 browser gets DOM keyboard events. turns it into semantic typing event
