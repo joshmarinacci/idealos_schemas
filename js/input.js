@@ -68,13 +68,13 @@ const TYPE_KeyboardDown = "MAKE_KeyboardDown_name"
 function MAKE_KeyboardDown(data) {
     let obj = {}
     obj.type = TYPE_KeyboardDown
-    if(!data.hasOwnProperty('name')) throw new Error("object 'KeyboardDown' is missing property 'name' ")
-    if(data.name === undefined) throw new Error("object 'KeyboardDown has undefined property name")
-    obj.name = data.name
+    if(!data.hasOwnProperty('code')) throw new Error("object 'KeyboardDown' is missing property 'code' ")
+    if(data.code === undefined) throw new Error("object 'KeyboardDown has undefined property code")
+    obj.code = data.code
     
-    if(!data.hasOwnProperty('letter')) throw new Error("object 'KeyboardDown' is missing property 'letter' ")
-    if(data.letter === undefined) throw new Error("object 'KeyboardDown has undefined property letter")
-    obj.letter = data.letter
+    if(!data.hasOwnProperty('key')) throw new Error("object 'KeyboardDown' is missing property 'key' ")
+    if(data.key === undefined) throw new Error("object 'KeyboardDown has undefined property key")
+    obj.key = data.key
     
     if(!data.hasOwnProperty('shift')) throw new Error("object 'KeyboardDown' is missing property 'shift' ")
     if(data.shift === undefined) throw new Error("object 'KeyboardDown has undefined property shift")
@@ -94,13 +94,13 @@ const TYPE_KeyboardUp = "MAKE_KeyboardUp_name"
 function MAKE_KeyboardUp(data) {
     let obj = {}
     obj.type = TYPE_KeyboardUp
-    if(!data.hasOwnProperty('name')) throw new Error("object 'KeyboardUp' is missing property 'name' ")
-    if(data.name === undefined) throw new Error("object 'KeyboardUp has undefined property name")
-    obj.name = data.name
+    if(!data.hasOwnProperty('code')) throw new Error("object 'KeyboardUp' is missing property 'code' ")
+    if(data.code === undefined) throw new Error("object 'KeyboardUp has undefined property code")
+    obj.code = data.code
     
-    if(!data.hasOwnProperty('letter')) throw new Error("object 'KeyboardUp' is missing property 'letter' ")
-    if(data.letter === undefined) throw new Error("object 'KeyboardUp has undefined property letter")
-    obj.letter = data.letter
+    if(!data.hasOwnProperty('key')) throw new Error("object 'KeyboardUp' is missing property 'key' ")
+    if(data.key === undefined) throw new Error("object 'KeyboardUp has undefined property key")
+    obj.key = data.key
     
     if(!data.hasOwnProperty('shift')) throw new Error("object 'KeyboardUp' is missing property 'shift' ")
     if(data.shift === undefined) throw new Error("object 'KeyboardUp has undefined property shift")

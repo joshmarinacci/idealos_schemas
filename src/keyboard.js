@@ -1,64 +1,104 @@
 import fs from 'fs'
-/*const DOM_KEYCODE_TO_KEYCODE_MAP = {
-    13:'ENTER',
-    8:'BACKSPACE',
-    16:'SHIFT',
-    49:1,
-    37:'LEFT',
-    38:'UP',
-    39:'RIGHT',
-    40:'DOWN',
 
-    32:'SPACE',
+/*
+browser client needs to map a dom keycode and shift to a key name and the char this key would produce
+some dom keycodes produce different chars depending on shift or not.
+some keycodes dont' produce characters at all. instead they just have a name, like arrowright and backspace
 
-}
-for(let i=48; i<=57; i++) {
-    DOM_KEYCODE_TO_KEYCODE_MAP[i] = String.fromCharCode(i)
-}
-for(let i=65; i<=90; i++) {
-    DOM_KEYCODE_TO_KEYCODE_MAP[i] = String.fromCharCode(i)
-}
-console.log("dom keycode map",DOM_KEYCODE_TO_KEYCODE_MAP)
+the apps should be able to tell if the event will produce a letter or some other behavior
 
-// for(let i=0; i<255; i++) {
-//     console.log(i,'is','"',String.fromCharCode(i),'"')
-// }
-*/
+
+kb.code / msg.dom_code = physical key that was pressed regardless of keyboard layout, string like KeyZ or ArrowLeft
+shift, alt, ctrl, meta, represent if that modifier key was down
+kb.key / msg.dom_key = the key value of the key. the ltter that would be produced. like z or Z or 1 or !
+kbd.location / ?? = the location of the key on the keybaord. ex: STANDARD | LEFT | RIGHT | NUMPAD
+
+ */
 const KEY_NAMES = {
-    "EXCLAMATION_POINT":"EXCLAMATION_POINT",
-    "AT_SIGN":"AT_SIGN",
     "Enter":"Enter",
     "Backspace":"Backspace",
     "Space":"Space",
+    "LeftShift":"LeftShift",
+    "RightShift":"RightShift",
 }
-const DOM_KEYCODE_SET = {}
-DOM_KEYCODE_SET[KEY_NAMES.EXCLAMATION_POINT]  = {key_code: 49,  shift:true, dom_key:"!", dom_code:"Digit1"}
-DOM_KEYCODE_SET[KEY_NAMES.AT_SIGN]            = {key_code: 50, shift:true,  dom_key:"@", dom_code:"Digit2" }
-DOM_KEYCODE_SET[KEY_NAMES.Enter]              = {key_code: 13, shift:false, dom_key:"Enter", dom_code: "Enter"}
-DOM_KEYCODE_SET[KEY_NAMES.Space]              = {key_code: 32, shift:false, dom_key:"Space", dom_code: "Space"}
-DOM_KEYCODE_SET[KEY_NAMES.Backspace]          = {key_code: 32, shift:false, dom_key:"Backspace", dom_code: "Backspace"}
+const TYPES = { CHAR:"CHAR", NON_PRINTING:"CONTROL"}
+const DOM_CODES = {}
+function insert_dom(name, char, type) {
+    if(!KEY_NAMES[name]) KEY_NAMES[name] = name
+    if(!DOM_CODES[name]) DOM_CODES[name] = []
+    DOM_CODES[name].push({code:name, key:char, type:type})
+}
 
-const KEYCODE_TO_NAME = {}
-
+//numbers
 for(let i=48; i<=57; i++) {
     let ch = String.fromCharCode(i)
     let name = "Digit"+ch
-    KEY_NAMES[name] = name
-    DOM_KEYCODE_SET[name] = { key_code:i,shift:false, dom_key:ch, dom_code:name}
-    KEYCODE_TO_NAME[i] = []
-    KEYCODE_TO_NAME[i].push({ key_code:i, shift:false, name:name, letter:ch.toLowerCase()})
+    insert_dom(name, ch, TYPES.CHAR)
+    const kb_symbols = [')','!','@','#','$','%','^','&','*','(']
+    insert_dom(name, kb_symbols[i-48], TYPES.CHAR)
+    insert_dom("Numpad"+ch,ch,TYPES.CHAR)
+
 }
 //letters
 for(let i=65; i<=90; i++) {
     let ch = String.fromCharCode(i)
     let name = "Key"+ch.toUpperCase()
-    KEY_NAMES[name] = name
-    DOM_KEYCODE_SET[name] = { key_code:i,shift:false, dom_key:ch, dom_code:name}
-    KEYCODE_TO_NAME[i] = []
-    KEYCODE_TO_NAME[i].push({ key_code:i, shift:false, name:name, letter:ch.toLowerCase()})
-    KEYCODE_TO_NAME[i].push({ key_code:i, shift:true, name:name, letter:ch.toUpperCase()})
+    insert_dom(name,ch.toUpperCase(), TYPES.CHAR)
+    insert_dom(name,ch.toLowerCase(), TYPES.CHAR)
+
 }
-// console.log("Keynames",KEY_NAMES)
+
+// DOM_CODES[KEY_NAMES.Enter]              = [{code: KEY_NAMES.Enter, key:"Enter"}]
+// DOM_CODES[KEY_NAMES.Space]              = [{code: KEY_NAMES.Space, key: " "}]
+// DOM_CODES[KEY_NAMES.Backspace]          = [{code: KEY_NAMES.Backspace, key:KEY_NAMES.Backspace}]
+//
+insert_dom("Space","Space",TYPES.CHAR)
+insert_dom("Comma",",",TYPES.CHAR)
+insert_dom("Comma","<",TYPES.CHAR)
+insert_dom("Period",".",TYPES.CHAR)
+insert_dom("Period",">",TYPES.CHAR)
+insert_dom("Slash","/",TYPES.CHAR)
+insert_dom("Slash","?",TYPES.CHAR)
+insert_dom("Backslash","\\",TYPES.CHAR)
+insert_dom("Backslash","|",TYPES.CHAR)
+insert_dom("Semicolon",";",TYPES.CHAR)
+insert_dom("Semicolon",":",TYPES.CHAR)
+insert_dom("Quote","'",TYPES.CHAR)
+insert_dom("Quote","\"",TYPES.CHAR)
+insert_dom("Backquote","`",TYPES.CHAR)
+insert_dom("Backquote","~",TYPES.CHAR)
+
+insert_dom("BracketLeft","[",TYPES.CHAR)
+insert_dom("BracketLeft","{",TYPES.CHAR)
+insert_dom("BracketRight","]",TYPES.CHAR)
+insert_dom("BracketRight","}",TYPES.CHAR)
+
+insert_dom("Minus","-",TYPES.CHAR)
+insert_dom("Minus","_",TYPES.CHAR)
+insert_dom("Equal","=",TYPES.CHAR)
+insert_dom("Equal","+",TYPES.CHAR)
+
+insert_dom("LeftShift","Shift",TYPES.NON_PRINTING)
+insert_dom("RightShift","Shift",TYPES.NON_PRINTING)
+insert_dom("Enter","Enter",TYPES.NON_PRINTING)
+insert_dom("Backspace","Backspace",TYPES.NON_PRINTING)
+insert_dom("ControlRight", "Control", TYPES.NON_PRINTING)
+insert_dom("ArrowLeft", "ArrowLeft", TYPES.NON_PRINTING)
+insert_dom("ArrowRight", "ArrowRight", TYPES.NON_PRINTING)
+insert_dom("ArrowUp", "ArrowDown", TYPES.NON_PRINTING)
+insert_dom("ArrowUp", "ArrowDown", TYPES.NON_PRINTING)
+
+insert_dom("NumpadEnter","Enter",TYPES.NON_PRINTING)
+insert_dom("NumpadEqual","=",TYPES.CHAR)
+insert_dom("NumpadAdd","+",TYPES.CHAR)
+insert_dom("NumpadSubtract","-",TYPES.CHAR)
+insert_dom("NumpadDivide","/",TYPES.CHAR)
+insert_dom("NumpadMultiply","*",TYPES.CHAR)
+insert_dom("NumLock","Clear",TYPES.NON_PRINTING)
+
+// KEYCODE_TO_NAME[8] = {key_code:8, shift:false, name:KEY_NAMES.Backspace, letter:"" }
+console.log("Keynames",KEY_NAMES)
+console.log("dom",DOM_CODES)
 
 // Object.keys(KEY_NAMES).forEach(name => {
 //     if(!DOM_KEYCODE_SET.hasOwnProperty(name)) return
@@ -77,8 +117,7 @@ for(let i=65; i<=90; i++) {
 
 const obj = {
     KEY_NAMES:KEY_NAMES,
-    NAME_TO_KEY:DOM_KEYCODE_SET,
-    KEYCODE_TO_NAME:KEYCODE_TO_NAME,
+    NAME_TO_KEY:DOM_CODES,
 }
 fs.promises.writeFile("js/keyboard_map.json", JSON.stringify(obj,null,'   '))
 fs.promises.writeFile("js/keyboard_map.js", `export const INFO = ${JSON.stringify(obj,null,'   ')}`)
