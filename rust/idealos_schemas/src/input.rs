@@ -61,4 +61,6 @@ pub struct Action {
     #[serde(rename = "type")]
     pub type_:String,
     pub command:String,
+    pub app:String,
+    pub window:String,
 }

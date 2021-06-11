@@ -132,6 +132,14 @@ function MAKE_Action(data) {
     if(data.command === undefined) throw new Error("object 'Action has undefined property command")
     obj.command = data.command
     
+    if(!data.hasOwnProperty('app')) throw new Error("object 'Action' is missing property 'app' ")
+    if(data.app === undefined) throw new Error("object 'Action has undefined property app")
+    obj.app = data.app
+    
+    if(!data.hasOwnProperty('window')) throw new Error("object 'Action' is missing property 'window' ")
+    if(data.window === undefined) throw new Error("object 'Action has undefined property window")
+    obj.window = data.window
+    
     return obj
 }
 export const INPUT = {
