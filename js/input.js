@@ -80,6 +80,10 @@ function MAKE_KeyboardDown(data) {
     if(data.shift === undefined) throw new Error("object 'KeyboardDown has undefined property shift")
     obj.shift = data.shift
     
+    if(!data.hasOwnProperty('control')) throw new Error("object 'KeyboardDown' is missing property 'control' ")
+    if(data.control === undefined) throw new Error("object 'KeyboardDown has undefined property control")
+    obj.control = data.control
+    
     if(!data.hasOwnProperty('app')) throw new Error("object 'KeyboardDown' is missing property 'app' ")
     if(data.app === undefined) throw new Error("object 'KeyboardDown has undefined property app")
     obj.app = data.app
@@ -105,6 +109,10 @@ function MAKE_KeyboardUp(data) {
     if(!data.hasOwnProperty('shift')) throw new Error("object 'KeyboardUp' is missing property 'shift' ")
     if(data.shift === undefined) throw new Error("object 'KeyboardUp has undefined property shift")
     obj.shift = data.shift
+    
+    if(!data.hasOwnProperty('control')) throw new Error("object 'KeyboardUp' is missing property 'control' ")
+    if(data.control === undefined) throw new Error("object 'KeyboardUp has undefined property control")
+    obj.control = data.control
     
     if(!data.hasOwnProperty('app')) throw new Error("object 'KeyboardUp' is missing property 'app' ")
     if(data.app === undefined) throw new Error("object 'KeyboardUp has undefined property app")

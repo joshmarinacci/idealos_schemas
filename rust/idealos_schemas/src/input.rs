@@ -39,6 +39,7 @@ pub struct KeyboardDown {
     pub code:String,
     pub key:String,
     pub shift:boolean,
+    pub control:boolean,
     pub app:String,
     pub window:String,
 }
@@ -50,6 +51,7 @@ pub struct KeyboardUp {
     pub code:String,
     pub key:String,
     pub shift:boolean,
+    pub control:boolean,
     pub app:String,
     pub window:String,
 }
