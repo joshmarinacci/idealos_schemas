@@ -3,4 +3,4 @@ MouseUp = object x:number y:number app:string window:string
 MouseMove = object x:number y:number app:string window:string
 KeyboardDown = object code:string key:string shift:boolean control:boolean app:string window:string
 KeyboardUp   = object code:string key:string shift:boolean control:boolean app:string window:string
-Action = object command:string
+Action = object command:string app:string window:string
