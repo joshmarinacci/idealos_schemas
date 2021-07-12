@@ -1,3 +1,4 @@
+
 #[cfg(test)]
 mod tests {
     #[test]
@@ -7,3 +8,9 @@ mod tests {
 }
 
 mod debug;
+mod general;
+mod graphics;
+mod input;
+mod menus;
+mod resources;
+mod windows;
