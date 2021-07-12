@@ -7,10 +7,10 @@ mod tests {
     }
 }
 
-mod debug;
-mod general;
-mod graphics;
-mod input;
-mod menus;
-mod resources;
-mod windows;
+pub mod debug;
+pub mod general;
+pub mod graphics;
+pub mod input;
+pub mod menus;
+pub mod resources;
+pub mod windows;
