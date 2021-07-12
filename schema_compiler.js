@@ -106,27 +106,6 @@ async function doit() {
     for (let sch of schemas) {
         await process_schema(path.join(SRC,sch+'.txt'),path.join(JS,sch+'.js'),path.join(RUST,sch+".rs"));
     }
-    // await process_schema(join(SRC,'menus.txt',
-    //     './src/src/menus_schemas.js',
-    //     './clients/rust-screen/src/menus_schemas.rs')
-    // await process_schema('./tools/src/windows.txt',
-    //     './src/src/windows_schemas.js',
-    //     './clients/rust-screen/src/windows_schemas.rs')
-    // await process_schema('./tools/src/resources.txt',
-    //     './src/src/resources_schemas.js',
-    //     './clients/rust-screen/src/resources_schemas.rs')
-    // await process_schema('./tools/src/input.txt',
-    //     './src/src/input_schemas.js',
-    //     './clients/rust-screen/src/input_schemas.rs')
-    // await process_schema('./tools/src/general.txt',
-    //     './src/src/general_schemas.js',
-    //     './clients/rust-screen/src/general_schemas.rs')
-    // await process_schema('./tools/src/graphics.txt',
-    //     './src/src/graphics_schemas.js',
-    //     './clients/rust-screen/src/graphics_schemas.rs')
-    // await process_schema('./tools/src/debug.txt',
-    //     './src/src/debug_schemas.js',
-    //     './clients/rust-screen/src/debug_schemas.rs')
 }
 
 function make_js_output(namespace,defs) {
@@ -232,6 +211,7 @@ function make_rs_output(namespace, defs) {
                 }
                 if(type === 'string') type = 'String'
                 if(type === 'number') type = 'i64'
+                if(type === 'boolean') type = 'bool'
                 rs_output.line(`pub ${name}:${type},`)
             })
             rs_output.outdent()
