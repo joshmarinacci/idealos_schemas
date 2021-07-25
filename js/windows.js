@@ -96,6 +96,22 @@ function MAKE_WindowOpenResponse(data) {
     if(data.window === undefined) throw new Error("object 'WindowOpenResponse has undefined property window")
     obj.window = data.window
     
+    if(!data.hasOwnProperty('x')) throw new Error("object 'WindowOpenResponse' is missing property 'x' ")
+    if(data.x === undefined) throw new Error("object 'WindowOpenResponse has undefined property x")
+    obj.x = data.x
+    
+    if(!data.hasOwnProperty('y')) throw new Error("object 'WindowOpenResponse' is missing property 'y' ")
+    if(data.y === undefined) throw new Error("object 'WindowOpenResponse has undefined property y")
+    obj.y = data.y
+    
+    if(!data.hasOwnProperty('width')) throw new Error("object 'WindowOpenResponse' is missing property 'width' ")
+    if(data.width === undefined) throw new Error("object 'WindowOpenResponse has undefined property width")
+    obj.width = data.width
+    
+    if(!data.hasOwnProperty('height')) throw new Error("object 'WindowOpenResponse' is missing property 'height' ")
+    if(data.height === undefined) throw new Error("object 'WindowOpenResponse has undefined property height")
+    obj.height = data.height
+    
     return obj
 }
 const TYPE_window_close_request = "MAKE_window_close_request_name"
@@ -209,6 +225,22 @@ function MAKE_create_child_window_response(data) {
     if(!data.hasOwnProperty('window')) throw new Error("object 'create_child_window_response' is missing property 'window' ")
     if(data.window === undefined) throw new Error("object 'create_child_window_response has undefined property window")
     obj.window = data.window
+    
+    if(!data.hasOwnProperty('x')) throw new Error("object 'create_child_window_response' is missing property 'x' ")
+    if(data.x === undefined) throw new Error("object 'create_child_window_response has undefined property x")
+    obj.x = data.x
+    
+    if(!data.hasOwnProperty('y')) throw new Error("object 'create_child_window_response' is missing property 'y' ")
+    if(data.y === undefined) throw new Error("object 'create_child_window_response has undefined property y")
+    obj.y = data.y
+    
+    if(!data.hasOwnProperty('width')) throw new Error("object 'create_child_window_response' is missing property 'width' ")
+    if(data.width === undefined) throw new Error("object 'create_child_window_response has undefined property width")
+    obj.width = data.width
+    
+    if(!data.hasOwnProperty('height')) throw new Error("object 'create_child_window_response' is missing property 'height' ")
+    if(data.height === undefined) throw new Error("object 'create_child_window_response has undefined property height")
+    obj.height = data.height
     
     return obj
 }

@@ -43,6 +43,10 @@ pub struct WindowOpenResponse {
     pub type_:String,
     pub target:String,
     pub window:String,
+    pub x:i64,
+    pub y:i64,
+    pub width:i64,
+    pub height:i64,
 }
 pub const window_close_request_name: &str = "MAKE_window_close_request_name";
 #[derive(Serialize, Deserialize, Debug)]
@@ -103,6 +107,10 @@ pub struct create_child_window_response {
     pub target:String,
     pub parent:String,
     pub window:String,
+    pub x:i64,
+    pub y:i64,
+    pub width:i64,
+    pub height:i64,
 }
 pub const create_child_window_display_name: &str = "MAKE_create_child_window_display_name";
 #[derive(Serialize, Deserialize, Debug)]
