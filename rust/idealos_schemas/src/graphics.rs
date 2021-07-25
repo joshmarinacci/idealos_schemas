@@ -29,10 +29,13 @@ pub struct DrawImage {
     #[serde(rename = "type")]
     pub type_:String,
     pub window:String,
+    pub color:String,
     pub x:i64,
     pub y:i64,
     pub width:i64,
     pub height:i64,
+    pub depth:i64,
+    pub channels:i64,
     pub pixels:image_buffer,
 }
 pub type image_buffer = Vec<u8>;

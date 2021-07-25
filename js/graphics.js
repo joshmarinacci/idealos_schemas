@@ -58,6 +58,10 @@ function MAKE_DrawImage(data) {
     if(data.window === undefined) throw new Error("object 'DrawImage has undefined property window")
     obj.window = data.window
     
+    if(!data.hasOwnProperty('color')) throw new Error("object 'DrawImage' is missing property 'color' ")
+    if(data.color === undefined) throw new Error("object 'DrawImage has undefined property color")
+    obj.color = data.color
+    
     if(!data.hasOwnProperty('x')) throw new Error("object 'DrawImage' is missing property 'x' ")
     if(data.x === undefined) throw new Error("object 'DrawImage has undefined property x")
     obj.x = data.x
@@ -73,6 +77,14 @@ function MAKE_DrawImage(data) {
     if(!data.hasOwnProperty('height')) throw new Error("object 'DrawImage' is missing property 'height' ")
     if(data.height === undefined) throw new Error("object 'DrawImage has undefined property height")
     obj.height = data.height
+    
+    if(!data.hasOwnProperty('depth')) throw new Error("object 'DrawImage' is missing property 'depth' ")
+    if(data.depth === undefined) throw new Error("object 'DrawImage has undefined property depth")
+    obj.depth = data.depth
+    
+    if(!data.hasOwnProperty('channels')) throw new Error("object 'DrawImage' is missing property 'channels' ")
+    if(data.channels === undefined) throw new Error("object 'DrawImage has undefined property channels")
+    obj.channels = data.channels
     
     if(!data.hasOwnProperty('pixels')) throw new Error("object 'DrawImage' is missing property 'pixels' ")
     if(data.pixels === undefined) throw new Error("object 'DrawImage has undefined property pixels")
